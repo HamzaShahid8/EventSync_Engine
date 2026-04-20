@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'accounts.apps.AccountsConfig',
     'django_celery_results',
+    'drf_yasg',
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
