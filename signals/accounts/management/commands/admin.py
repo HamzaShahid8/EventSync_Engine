@@ -13,6 +13,9 @@ class Command(BaseCommand):
         password = os.getenv('DJANGO_SUPERUSER_PASSWORD')
         email = os.getenv('DJANGO_SUPERUSER_EMAIL')
         
+        if not username or not password:
+            self.stdout.write(self.style.ERROR('Missing enviroment variables'))
+        
         if  not User.objects.filter(username=username).exists():
             User.objects.create_superuser(
                 username=username,
